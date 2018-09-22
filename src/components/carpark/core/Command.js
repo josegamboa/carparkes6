@@ -32,7 +32,6 @@ class Command {
           throw e;
       }
    }
-
    executeAction(){
         try{
           if( typeof this._lastCommand === 'object' ){
