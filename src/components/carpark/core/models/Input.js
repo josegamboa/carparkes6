@@ -1,4 +1,5 @@
 let Action = require("./Action");
+let Orientation = require("./../Orientation");
 let Conf = require("./../../conf");
 let config = require("config");
 
@@ -103,7 +104,7 @@ class Input extends Action {
                 if (x === true && y === true) {
                     this._tempCommand.place.x = Number.parseInt(locationArray[0]);
                     this._tempCommand.place.y = Number.parseInt(locationArray[1]);
-                    if (this._checkDirection(locationArray[2]) === true) {
+                    if (Orientation.checkDirection(locationArray[2]) === true) {
                         this._tempCommand.place.direction = locationArray[2];
                         isValid = true;
                     }
@@ -114,36 +115,6 @@ class Input extends Action {
             throw e;
         }
     }
-
-    /**
-     * @description Check if the vehicle direction is valid
-     * @param direction
-     * @returns {boolean}
-     * @private
-     */
-    _checkDirection(direction) {
-        try {
-            switch (direction) {
-                case Conf.NORTH:
-                    return true;
-                    break;
-                case Conf.EAST:
-                    return true;
-                    break;
-                case Conf.SOUTH:
-                    return true;
-                    break;
-                case Conf.WEST:
-                    return true;
-                    break;
-                default:
-                    return false;
-            }
-        } catch (e) {
-            throw e;
-        }
-    }
-
 }
 
 module.exports = Input;
