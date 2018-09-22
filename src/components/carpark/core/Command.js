@@ -10,6 +10,7 @@ class Command {
       try{
           if(action instanceof  Action){
               if(action.check()===true){
+                  console.log(action.command);
                  console.log("Command is valid");
               }else{
                   console.log("*****Error: Command is not valid****");
