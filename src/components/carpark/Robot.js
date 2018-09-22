@@ -7,11 +7,14 @@ class Robot
         try
         {
             console.log("Basic structure working fine....");
-            //let cmd = new Command(new Input(input));
+            let cmd = new Command();
+            let input = new Input("PLACE 2,1,SOUTH");
+            cmd.executeAction(input);
         }
         catch (e)
         {
-            throw e;
+            console.log(e);
+           // throw e;
         }
     }
 }

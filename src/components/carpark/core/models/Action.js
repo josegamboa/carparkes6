@@ -1,21 +1,36 @@
 class Action
 {
-    constructor(...command)
+    constructor(input)
     {
-        this._command = command;
-        this.type = null;
-        this.error = null;
+        this._input = String(input.trim()).toUpperCase();
+        this._type = null;
+        this._error = null;
+        this._isvalid = false;
     }
 
+    /**
+     * @description Check if the action is valid
+     * @returns {boolean}
+     */
+     get isValid(){
+         try
+         {
+             return this._isvalid;
+         }
+         catch (e)
+         {
+             throw e;
+         }
+     }
     /**
      * @description Return Command
      * @returns {*[]|*}
      */
-    get command()
+    get input()
     {
         try
         {
-            return this._command;
+            return this._input;
         }
         catch (e)
         {
@@ -31,7 +46,7 @@ class Action
     {
         try
         {
-            return this.type;
+            return this._type;
         }
         catch (e)
         {
@@ -41,13 +56,13 @@ class Action
 
     /**
      * @description
-     * @param type
+     * @param  type {String}
      */
     set type(type)
     {
         try
         {
-            this.type = type;
+            this._type = type;
         }
         catch (e)
         {
@@ -59,7 +74,7 @@ class Action
     {
         try
         {
-            return this.error;
+            return this._error;
         }
         catch (e)
         {
@@ -67,11 +82,11 @@ class Action
         }
     }
 
-    set error(error)
+    set error(err)
     {
         try
         {
-            this.error = error;
+             this._error = err;
         }
         catch (e)
         {
