@@ -50,9 +50,9 @@ class Stage {
             if (Stage.carPark[x][y]) {
                 return true;
             } else {
+                console.log("Sorry, "+x+","+y+" block  does not exist.");
                 return false;
             }
-
         } catch (e) {
             return false;
         }
@@ -115,7 +115,7 @@ class Stage {
                         coord.x = x+1;
                         return coord;
                     } else if (orientation.operation === "-") {
-                        coord.y =0;
+                        coord.y =y;
                         coord.x = x-1;
                         return coord;
                     }else{
@@ -132,7 +132,7 @@ class Stage {
      */
     static printCarPark(){
         try{
-            console.log(":::::::::::::::::::::::::::::::::::::::::::::");
+            console.log(":::::::::::::::::::::::CarPark:::::::::::::::");
             console.log(Stage.carPark);
             console.log(":::::::::::::::::::::::::::::::::::::::::::::");
         }catch(e){

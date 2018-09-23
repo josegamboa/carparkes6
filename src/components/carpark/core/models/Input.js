@@ -9,7 +9,6 @@ let config = require("config");
 class Input extends Action {
     constructor(input) {
         super(input);
-        this.type = "ddd";
         this._tempCommand = null;
         this._command = null;
     }
@@ -34,11 +33,6 @@ class Input extends Action {
         try {
             let isValid = false;
             let place = this.input.indexOf(Conf.CM_PLACE);
-
-            let left = this.input.indexOf(Conf.CM_LEFT);
-            let right = this.input.indexOf(Conf.CM_RIGHT);
-            let report = this.input.indexOf(Conf.CM_REPORT);
-
             if (place >= 0) {
                 if (this._checkPlace() === true) {
                     isValid = true;

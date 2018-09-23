@@ -10,9 +10,16 @@ class Vehicle{
             throw e;
         }
     }
-    move(place){
-        try{
 
+    /**
+     * @description change vehicle direction
+     * @param place
+     * @returns {boolean}
+     */
+    changeDirection(place){
+        try{
+            this._place.direction=place;
+            return true;
         }catch(e){
             throw e;
         }

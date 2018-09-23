@@ -29,20 +29,21 @@ class Console {
         }
     }
 
+    /**
+     * @description Send command to the carpark
+     * @param input
+     * @param Stage
+     */
    static sendInput(input,Stage){
       try{
-          //let input="REPORT";
           if(Robot.validateInput(input)){
-              console.log("Command accepted:");
-              console.log(Robot.getLastCommand());
               if(Robot.executeCommand(Stage)===true){
-                  console.log("Command was executed");
-                  console.log(Stage.printCarPark());
+                  Stage.printCarPark();
               }else{
                   console.log("Error executing command...");
               }
           }else{
-              console.log("Command is not valid, please try again....");
+              console.log("Command: "+input+" not found.");
           }
       } catch(e){
           console.log(e);
