@@ -2,7 +2,11 @@ class Action
 {
     constructor(input)
     {
-        this._input = String(input.trim()).toUpperCase();
+        if(typeof input === "string"){
+            this._input = String(input.trim()).toUpperCase();
+        }else{
+            this._input = input;
+        }
         this._type = null;
         this._error = null;
         this._isvalid = false;
