@@ -1,8 +1,17 @@
 let Orientation = require("./Orientation");
+let carPark = null;
+let conf = {rows:0,cols:0,defValue:"free"};
 /**
  * @description Check and move on CarPark positions
  */
 class Stage {
+   static  reset(){
+        try{
+            return Stage.createCarPark(conf.rows,conf.cols,conf.defValue);
+        }catch(e){
+            throw e;
+        }
+    }
     /**
      * @description Create a new Carpark
      * @param rows
@@ -12,6 +21,9 @@ class Stage {
      */
     static createCarPark(rows, cols, defValue) {
         try {
+            conf.rows = rows;
+            conf.cols = cols;
+            conf.defValue = defValue;
             let array = [];
             for (let i = 0; i < rows; i++) {
                 array.push([]);
@@ -38,10 +50,11 @@ class Stage {
             if (Stage.carPark[x][y]) {
                 return true;
             } else {
+                console.log("Sorry, "+x+","+y+" block  does not exist.");
                 return false;
             }
-
         } catch (e) {
+            console.log("Sorry, "+x+","+y+" block  does not exist.");
             return false;
         }
     }
@@ -103,7 +116,7 @@ class Stage {
                         coord.x = x+1;
                         return coord;
                     } else if (orientation.operation === "-") {
-                        coord.y =0;
+                        coord.y =y;
                         coord.x = x-1;
                         return coord;
                     }else{
@@ -112,6 +125,18 @@ class Stage {
                     break;
             }
         } catch (e) {
+            throw e;
+        }
+    }
+    /**
+     * @description Show the array positions and values
+     */
+    static printCarPark(){
+        try{
+            console.log(":::::::::::::::::::::::CarPark:::::::::::::::");
+            console.log(Stage.carPark);
+            console.log(":::::::::::::::::::::::::::::::::::::::::::::");
+        }catch(e){
             throw e;
         }
     }
