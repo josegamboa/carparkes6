@@ -36,17 +36,21 @@ class Console {
      */
    static sendInput(input,Stage){
       try{
+          let isValid = false;
           if(Robot.validateInput(input)){
               if(Robot.executeCommand(Stage)===true){
                   Stage.printCarPark();
+                  isValid = true;
               }else{
                   console.log("Error executing command...");
               }
           }else{
               console.log("Command: "+input+" not found.");
           }
+          return isValid;
       } catch(e){
           console.log(e);
+          return false;
          // throw e;
       }
    }

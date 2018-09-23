@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Carpark bus simulation",
   "main": " ./src/app.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "runapp": " nodemon ./src/app.js"
   },
   "author": "Jose Joaquin Gamboa <jose_9515@hotmail.com>",
@@ -14,6 +17,8 @@
     "inquirer": "^6.2.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.4"
   }
 }
