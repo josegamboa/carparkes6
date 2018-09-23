@@ -34,7 +34,7 @@ class Input extends Action {
         try {
             let isValid = false;
             let place = this.input.indexOf(Conf.CM_PLACE);
-            let move = this.input.indexOf(Conf.CM_MOVE);
+
             let left = this.input.indexOf(Conf.CM_LEFT);
             let right = this.input.indexOf(Conf.CM_RIGHT);
             let report = this.input.indexOf(Conf.CM_REPORT);
@@ -43,14 +43,18 @@ class Input extends Action {
                 if (this._checkPlace() === true) {
                     isValid = true;
                 }
-            } else if (move >= 0) {
-                this._command = {move: Conf.CM_MOVE}
-            } else if (left >= 0) {
-                this._command = {left: Conf.CM_MOVE}
-            } else if (right >= 0) {
-                this._command = {right: Conf.CM_MOVE}
-            } else if (report >= 0) {
-                this._command = {report: Conf.CM_MOVE}
+            } else if (this.input === Conf.CM_MOVE) {
+                this._command = {move: Conf.CM_MOVE};
+                isValid = true;
+            } else if (this.input ===Conf.CM_LEFT) {
+                this._command = {left: Conf.CM_LEFT};
+                isValid = true;
+            } else if (this.input ===Conf.CM_RIGHT) {
+                this._command = {right: Conf.CM_RIGHT};
+                isValid = true;
+            } else if (this.input ===Conf.CM_REPORT) {
+                this._command = {report: Conf.CM_REPORT};
+                isValid = true;
             }
             return isValid;
         } catch (e) {

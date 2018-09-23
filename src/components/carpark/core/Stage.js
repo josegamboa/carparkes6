@@ -1,4 +1,5 @@
 let Orientation = require("./Orientation");
+let carPark = null;
 /**
  * @description Check and move on CarPark positions
  */
@@ -112,6 +113,18 @@ class Stage {
                     break;
             }
         } catch (e) {
+            throw e;
+        }
+    }
+    /**
+     * @description Show the array positions and values
+     */
+    static printCarPark(){
+        try{
+            console.log(":::::::::::::::::::::::::::::::::::::::::::::");
+            console.log(Stage.carPark);
+            console.log(":::::::::::::::::::::::::::::::::::::::::::::");
+        }catch(e){
             throw e;
         }
     }
