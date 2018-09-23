@@ -83,6 +83,9 @@ class Robot {
             let placed=false;
             if(stage.checkBlock(place.x,place.y)===true){
                 console.log("Placing car:");
+                if(vehicle){
+                    stage.reset();
+                }
                 vehicle = new Vehicle(lastCommand.place);
                 stage.carPark[place.x][place.y]="[==]";
                 console.log(vehicle);

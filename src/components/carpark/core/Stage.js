@@ -1,9 +1,17 @@
 let Orientation = require("./Orientation");
 let carPark = null;
+let conf = {rows:0,cols:0,defValue:"free"};
 /**
  * @description Check and move on CarPark positions
  */
 class Stage {
+   static  reset(){
+        try{
+            return Stage.createCarPark(conf.rows,conf.cols,conf.defValue);
+        }catch(e){
+            throw e;
+        }
+    }
     /**
      * @description Create a new Carpark
      * @param rows
@@ -13,6 +21,9 @@ class Stage {
      */
     static createCarPark(rows, cols, defValue) {
         try {
+            conf.rows = rows;
+            conf.cols = cols;
+            conf.defValue = defValue;
             let array = [];
             for (let i = 0; i < rows; i++) {
                 array.push([]);
