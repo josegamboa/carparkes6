@@ -54,6 +54,7 @@ class Stage {
                 return false;
             }
         } catch (e) {
+            console.log("Sorry, "+x+","+y+" block  does not exist.");
             return false;
         }
     }
